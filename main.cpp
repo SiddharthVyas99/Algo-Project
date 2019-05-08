@@ -146,3 +146,87 @@ int co=0;
     cout<<"\n\n\n\n";
     }
 }
+int main()
+{
+	int a[4][5]={5,5,5,5,5,
+				3,4,4,4,4,
+				4,4,2,4,4,
+				4,4,4,4,4};
+
+	struct node *prev,*head,*p;
+	head=NULL;
+	int index=0;
+	for(int i=0;i<4;i++)
+	{
+		for(int j=0;j<5;j++)
+		{
+		    for(int k=0;k<a[i][j];k++)
+            {
+		    index++;
+		    p=(node*)malloc(sizeof(struct node));
+        p->a=i;
+        p->b=j;
+        p->next=NULL;
+        if(head==NULL)
+            head=p;
+        else
+            prev->next=p;
+        prev=p;
+		}
+		}
+
+	}
+	cout<<index<<endl;
+	struct node *t;
+	t=head;
+
+	struct node *q,*w;
+	q=head;
+	int i=0;
+
+	bool b[V][V];
+	while(q!=NULL)
+    {
+       int  j=0;
+        w=head;
+        while(w!=NULL)
+        {
+            if(i==j)
+            {
+                b[i][j]=0;
+            }
+            else
+            {
+                if(q->a==w->a)
+                {
+                    b[i][j]=1;
+                }
+                else
+                    if(q->b==w->b)
+                {
+                    b[i][j]=1;
+                }
+                else
+                {
+                    b[i][j]=0;
+                }
+            }
+            w=w->next;
+            j++;
+
+        }
+        q=q->next;
+        i++;
+    }
+    for(int i=0;i<index;i++)
+    {
+        for(int j=0;j<index;j++)
+        {
+            //cout<<b[i][j]<<" ";
+        }
+        //cout<<endl;
+    }
+    int m = 30;
+    graphColoring (b, m,head);
+     print(m);
+}
